@@ -412,7 +412,7 @@ Remove a tag (Beef) from the 1st recipe.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>cookbook view recipe 1</code><br>
+<p><code>cookbook view 1</code><br>
 Views the ingredients and steps of recipe 1.</p>
 </li>
 </ul>
@@ -422,7 +422,74 @@ Views the ingredients and steps of recipe 1.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="search-recipes-by-keyword"><a class="link" href="#search-recipes-by-keyword">3.3.2. Search recipes by keyword</a></h4>
+<h4 id="add-a-new-recipe-to-the-cookbook"><a class="link" href="#add-a-new-recipe-to-the-cookbook">3.3.2. Add a new recipe to the cookbook</a></h4>
+<div class="paragraph">
+<p>This command allows you to add and store a new recipe with the specified recipe name to the cookbook.
+If neither of the details is specified, an empty recipe will be added.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Format: <code>cookbook add n/NAME [i/INGREDIENT] [q/QUANTITY] [x/STEP_INDEX] [s/STEP] [t/TAG]</code></p>
+</li>
+<li>
+<p>Example:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cookbook add n/Bacon Carbonara</code><br>
+Adds a new empty recipe with the name 'Bacon Carbonara'.</p>
+</li>
+<li>
+<p><code>cookbook add n/Chicken Ham Sandwich i/Chicken Ham i/White Bread q/2 slices
+x/1 s/Toast the bread x/2 s/Grill the ham. t/sandwich t/easy</code><br>
+ Adds a new recipe with the name 'Chicken Ham Sandwich' and the following recipe details.<br>
+ Tags: sandwich, easy<br>
+ Ingredients: Ham, Bread (2 slices)<br>
+ Preparation Steps:<br></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Toast the ham<br></p>
+</li>
+<li>
+<p>Grill the bread</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="remove-a-recipe-from-the-cookbook"><a class="link" href="#remove-a-recipe-from-the-cookbook">3.3.3. Remove a recipe from the cookbook</a></h4>
+<div class="paragraph">
+<p>This command allows you to remove a recipe of the specified index from the cookbook.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Format: <code>cookbook remove INDEX</code></p>
+</li>
+<li>
+<p>Example:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cookbook remove 1</code><br>
+Removes recipe 1 from the cookbook.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="search-recipes-by-keyword"><a class="link" href="#search-recipes-by-keyword">3.3.4. Search recipes by keyword</a></h4>
 <div class="paragraph">
 <p>This command allows you to search for a recipe by a keyword, and the desired recipe can be viewed using the command <code>cookbook view recipe</code>.</p>
 </div>
@@ -446,7 +513,7 @@ Searches the cookbook for recipes with names matching the keyword 'Carbonara'.</
 </div>
 </div>
 <div class="sect3">
-<h4 id="search-recipes-by-tag"><a class="link" href="#search-recipes-by-tag">3.3.3. Search recipes by tag</a></h4>
+<h4 id="search-recipes-by-tag"><a class="link" href="#search-recipes-by-tag">3.3.5. Search recipes by tag</a></h4>
 <div class="paragraph">
 <p>This command allows you to search for recipes by tags, and the desired recipe can be viewed using the command <code>cookbook view recipe</code>.</p>
 </div>
@@ -474,7 +541,7 @@ Searches the cookbook for recipes with tags matching 'Pasta', 'Cream', and 'Easy
 </div>
 </div>
 <div class="sect3">
-<h4 id="search-recipes-by-ingredients-owned"><a class="link" href="#search-recipes-by-ingredients-owned">3.3.4. Search recipes by ingredients owned</a></h4>
+<h4 id="search-recipes-by-ingredients-owned"><a class="link" href="#search-recipes-by-ingredients-owned">3.3.6. Search recipes by ingredients owned</a></h4>
 <div class="paragraph">
 <p>This command allows you to see what you can cook with your current inventory of ingredients by searching for recipes by the percentage of required ingredients owned, and the desired recipe can be viewed using the command <code>cookbook view recipe</code>.</p>
 </div>
@@ -601,4 +668,4 @@ Clears the cart of all items.</p>
 <div class="sectionbody">
 
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-04 13:06:05 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-04 13:10:06 UTC</div></div></div></body></html>
