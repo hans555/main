@@ -625,8 +625,30 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="paragraph">
 <p><strong>Target user profile</strong>:</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>has a need to manage a significant number of recipes</p>
+</li>
+<li>
+<p>has a need to manage food resources efficiently</p>
+</li>
+<li>
+<p>prefer desktop apps over other types of apps</p>
+</li>
+<li>
+<p>can type fast</p>
+</li>
+<li>
+<p>prefers typing over mouse input</p>
+</li>
+<li>
+<p>is reasonably comfortable using CLI apps</p>
+</li>
+</ul>
+</div>
 <div class="paragraph">
-<p><strong>Value proposition</strong>:</p>
+<p><strong>Value proposition</strong>: manage recipes and food resources faster than a typical mouse/GUI driven app</p>
 </div>
 </div>
 </div>
@@ -690,13 +712,13 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">person with seafood allergy</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">cook meals that don&#8217;t contain seafood</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">person with food allergies</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cook meals that I am not allergic to</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">I do not have an allergic reaction</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">cooking enthusiast</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">regular cook</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">edit recipes</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">I can tweak a recipe to my liking</p></td>
 </tr>
@@ -764,7 +786,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kiasu parent</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">know how much ingredients I need for 2 weeks</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">my family can survive an epidemic</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ensure my family never runs out of food</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
@@ -790,51 +812,6 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>Use case: UC01 - Add a recipe's ingredients to cart
-
-MSS:
-1. User chooses to add a recipe's ingredients to the cart.
-2. Cooking Papa requests for index of the recipe.
-3. User enters the requested index.
-4. Cooking Papa add the ingredients to the cart.
-Use case ends.
-
-Extensions:
-    3a. The given index is invalid.
-        3a1. Cooking Papa requests for the correct index.
-        3a2. User enters the new index.
-        Steps 3a1-3a2 are repeated until the index entered is valid.
-        Use case resumes from step 4.
-=======
-Use Case: UC02 - View Recipes
-
-MSS:
-1. User chooses to view recipes.
-2. Cooking Papa requests for input.
-3. User enters the index of the desired recipe.
-4. Cooking Papa displays the entire recipe with the corresponding index.
-Use case ends.</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code>Use Case: UC08 - Search Recipes
-
-MSS:
-1. User chooses to search recipes.
-2. Cooking Papa requests for input.
-3. User enters the keyword to be searched.
-4. Cooking Papa displays recipes with the corresponding keyword.
-Use case ends.
-
-Extensions:
-    3a. User enters the tag to be searched.
-        3a1. Cooking Papa displays the recipes with the corresponding tags.
-        Use case ends.</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
 <pre class="CodeRay highlight"><code>Use case: UC01 - Create a recipe
 
 MSS:
@@ -842,7 +819,7 @@ MSS:
 2. Cooking Papa requests for details of the recipe.
 3. User enters the requested details.
 4. Cooking Papa creates the recipe and stores it in the cookbook, and displays the newly created recipe.
-Use case ends
+Use case ends.
 
 Extensions:
     3a. Cooking Papa detects an error in the entered data.
@@ -854,6 +831,58 @@ Extensions:
 
     *a. At any time, User chooses to end the creation of a recipe.
         *a1. Cooking Papa cancels creation of a recipe.</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>Use Case: UC02 - Search for recipes
+
+MSS:
+1. User chooses to search recipes.
+2. Cooking Papa requests for the tag to be searched.
+3. User enters the tag.
+4. Cooking Papa displays recipes with the corresponding tag.
+Use case ends.</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>Use Case: UC03 - View a recipe
+
+MSS:
+1. User chooses to view recipes.
+2. Cooking Papa requests for the index of the recipe.
+3. User enters the requested index.
+4. Cooking Papa displays the entire recipe with the corresponding index.
+Use case ends.
+
+Extensions:
+    3a. The given index is invalid.
+        3a1. Cooking Papa shows an error message.
+        3a2. Cooking Papa requests for the correct index.
+        3a3. User enters the new index.
+        Steps 3a1-3a3 are repeated until the index entered is valid.
+        Use case resumes from step 4.</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>Use case: UC04 - Add a recipe's ingredients to the cart
+
+MSS:
+1. User chooses to add a recipe's ingredients to the cart.
+2. Cooking Papa requests for the index of the recipe.
+3. User enters the requested index.
+4. Cooking Papa add the ingredients to the cart.
+Use case ends.
+
+Extensions:
+    3a. The given index is invalid.
+        3a1. Cooking Papa shows an error message.
+        3a2. Cooking Papa requests for the correct index.
+        3a3. User enters the new index.
+        Steps 3a1-3a3 are repeated until the index entered is valid.
+        Use case resumes from step 4.</code></pre>
 </div>
 </div>
 </div>
@@ -1038,4 +1067,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-05 15:59:23 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-07 07:22:23 UTC</div></div></div></body></html>
