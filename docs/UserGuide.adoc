@@ -490,7 +490,7 @@ removed regardless of the unit.
 | Command | Result
 
 |`inventory remove ingredient i/Bacon`
-|Removes all bacons from your inventory.
+|Removes all bacon from your inventory.
 
 |`inventory remove ingredient i/Butter q/200g`
 |Removes 200g of butter from your inventory.
