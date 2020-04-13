@@ -503,7 +503,7 @@ This command allows you to remove all ingredients from the inventory.
 - Format: `inventory clear`
 - Example:
 |===
-| Parameters | Result
+| Command | Result
 
 |`inventory clear`
 |Removes all ingredients from the inventory
@@ -653,36 +653,38 @@ image::ExitExample.png[width="790"]
 == Version 2.0 Features
 These features are not implemented yet, but we plan to do so moving forward with the application.
 
+// tag::gohkh[]
 === Edit recipe details [v2.0] https://github.com/gohkh?tab=repositories[(by Goh Ka Hui)]
 The following commands allow you to edit the details of the recipes that are currently in the cookbook.
 
 ==== Edit an ingredient in a recipe
-If you want to change the quantity of an ingredient after some experimentation, this command will help you achieve that.
+This command allows you to edit an ingredient in an existing recipe in the cookbook.
+It replaces the original quantity of the ingredient with the new quantity that you specify in the command.
 
 - Format: `recipe INDEX edit i/INGREDIENT q/QUANTITY`
 - Examples:
 |===
-| Parameters | Result
+| Command | Result
 
-| `recipe 1 edit i/Egg q/2`
-|Changes the quantity of eggs to 3 in the 1st recipe's list of ingredients.
+| `recipe 1 edit i/Eggs q/2`
+|Changes the quantity of eggs to 2 in the first recipe's list of ingredients.
 
 |`recipe 2 edit i/Milk q/100 ml`
-|Changes the quantity of milk to 100 ml in the 2nd recipe's list of ingredients.
+|Changes the quantity of milk to 100 ml in the second recipe's list of ingredients.
 |===
 
 ==== Edit a preparation step in a recipe
-This command allows you to edit a preparation step from the selected recipe.
-Requires a valid index in the list of recipes and the cooking step
+This command allows you to edit a step in an existing recipe in the cookbook.
 
 - Format: `recipe INDEX edit step x/STEP_INDEX s/STEP_DESCRIPTION`
 - Example:
 |===
-| Parameters | Result
+| Command | Result
 
 |`recipe 1 edit step x/2 s/Fry the eggs`
 |Changes preparation step 2 to 'Fry the eggs' in recipe 1
 |===
+// end::gohkh[]
 
 //tag::calendar[]
 === Calendar Commands [v2.0] https://github.com/teo-jun-xiong[(by Teo Jun Xiong)]
@@ -695,7 +697,7 @@ Reminds the user to cook a certain recipe on a certain day.
 - Format: ``calendar set DD-MM-YYYY cook recipe INDEX``
 - Example:
 |===
-| Parameters | Result
+| Command | Result
 
 | `calendar set 10-10-2020 cook recipe 1`
 |Adds recipe 1 to your calendar for cooking on 10th October 2020.
@@ -708,7 +710,7 @@ be replaced with 'today' for the current date, or 'tomorrow' for the next day.
 - Format: ``calendar view recipes DD-MM-YYYY``
 - Example:
 |===
-| Parameters | Result
+| Command | Result
 
 | `calendar view recipes 10-10-2020`
 |Shows the recipes scheduled for cooking on 10th October 2020.
@@ -726,7 +728,7 @@ This command allows CookingPapa to recommend a recipe to cook based on the recip
 - Format: ``generate recipe of the day``
 - Example:
 |===
-| Parameters | Result
+| Command | Result
 
 | `generate recipe of the day`
 |Displays the recipe of the day
@@ -794,13 +796,15 @@ INGREDIENT and its QUANTITY, STEP, and TAG are optional parameters and will be a
 |``INDEX remove tag t/TAG``
 |Removes a tag 'TAG' to the recipe at given INDEX.
 
-.3+|``inventory``
+.4+|``inventory``
 |``add ingredient  i/INGREDIENT q/QUANTITY``
 |Adds QUANTITY of INGREDIENTS into your inventory.
 |``remove ingredient i/INGREDIENT q/QUANTITY``
 |Removes QUANTITY of INGREDIENTS from your inventory.
-|`clear`
+|``clear``
 |Removes all ingredients from the inventory.
+|``cook recipe INDEX``
+|Removes the ingredients and its' corresponding quantities of recipe INDEX from the inventory.
 
 .6+|``cart``
 |``add recipe INDEX``

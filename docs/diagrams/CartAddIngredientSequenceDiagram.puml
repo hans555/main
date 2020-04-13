@@ -90,6 +90,7 @@ deactivate CommandResult
 CartAddIngredientCommand --> LogicManager : result
 destroy CartAddIngredientCommand
 
+
 [<--LogicManager
 deactivate LogicManager
 @enduml

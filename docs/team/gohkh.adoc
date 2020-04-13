@@ -49,6 +49,9 @@ https://github.com/AY1920S2-CS2103T-F11-4/main/pull/230[#230])
 *** Fixed a major GUI bug that caused Linux users not to be able to see the components of the app window properly
 (Pull request https://github.com/AY1920S2-CS2103T-F11-4/main/pull/234[#234])
 
+** Documentation:
+*** Updated UML class diagrams of the `Logic`, `Model` and `Storage` components from the Address Book Level 3 diagrams
+
 ** Community:
 *** PRs reviewed (with non-trivial comments):
 https://github.com/AY1920S2-CS2103T-F11-4/main/pull/18[#18],
