@@ -26,7 +26,7 @@ Refer to the guide <<SettingUp#, here>>.
 [[Design-Architecture]]
 === Architecture
 
-.Architecture Diagram
+.Architecture diagram
 image::ArchitectureDiagram.png[]
 
 The *_Architecture Diagram_* given above explains the high-level design of the App. Given below is a quick overview of each component.
@@ -55,7 +55,7 @@ Each of the four components
 
 For example, the `Logic` component (see the class diagram given below) defines it's API in the `Logic.java` interface and exposes its functionality using the `LogicManager.java` class.
 
-.Class Diagram of the Logic Component
+.Class diagram of the Logic component
 image::LogicClassDiagram.png[]
 
 [discrete]
@@ -88,11 +88,12 @@ The `UI` component,
 * Executes user commands using the `Logic` component.
 * Listens for changes to `Model` data so that the UI can be updated with the modified data.
 
+// tag::gohkh[]
 [[Design-Logic]]
 === Logic component https://github.com/gohkh[(by Goh Ka Hui)]
 
 [[fig-LogicClassDiagram]]
-.Structure of the Logic Component
+.Structure of the Logic component
 image::LogicClassDiagram.png[]
 
 *API* :
@@ -106,13 +107,13 @@ link:{repoURL}/src/main/java/seedu/address/logic/Logic.java[`Logic.java`]
 
 Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("cookbook remove recipe 2")` API call.
 
-.Interactions Inside the Logic Component for the `cookbook remove recipe 2` Command
+.Interactions inside the Logic component for the `cookbook remove recipe 2` command
 image::CookbookRemoveRecipeSequenceDiagram.png[]
 
 [[Design-Model]]
 === Model component https://github.com/gohkh[(by Goh Ka Hui)]
 
-.Structure of the Model Component
+.Structure of the Model component
 image::ModelClassDiagram.png[]
 
 *API* : link:{repoURL}/src/main/java/seedu/address/model/Model.java[`Model.java`]
@@ -122,6 +123,8 @@ The `Model`,
 * stores a `UserPref` object that represents the user's preferences.
 * stores the Cookbook data.
 * exposes an unmodifiable `ObservableList<Recipe>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
+* stores the Inventory and Cart data.
+* exposes an unmodifiable `ObservableList<Recipe>` each for both Inventory and Cart, that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * does not depend on any of the other three components.
 
 [NOTE]
@@ -132,7 +135,7 @@ image:BetterModelClassDiagram.png[]
 [[Design-Storage]]
 === Storage component https://github.com/gohkh[(by Goh Ka Hui)]
 
-.Structure of the Storage Component
+.Structure of the Storage component
 image::StorageClassDiagram.png[]
 
 *API* : link:{repoURL}/src/main/java/seedu/address/storage/Storage.java[`Storage.java`]
@@ -143,6 +146,7 @@ The `Storage` component,
 * can save `Cookbook` data in json format and read it back.
 * can save `Inventory` data in json format and read it back.
 * can save `Cart` data in json format and read it back.
+// end::gohkh[]
 
 [[Design-Commons]]
 === Common classes
@@ -474,13 +478,13 @@ if (recipe.getIngredients().size() == NO_INGREDIENTS) {
 
 The following activity diagram shows a possible flow of events for a user using this feature:
 
-.Acitivty diagram for CookbookSearchByInventory
+.Activity diagram for the `cookbook search inventory` command
 image::CookbookSearchByInventoryActivityDiagram.png[]
 
 The following sequence diagram summarizes how objects interact when a user executes the command,
 with more focus on how the command is parsed in the `Logic`component:
 
-.Sequence diagram for CookbokoSearchByInventory
+.Sequence diagram for CookbookSearchByInventoryCommand
 
 image::CookbookSearchByInventorySequenceDiagram.png[]
 
@@ -757,6 +761,10 @@ After adding an ingredient, the cart will be updated with `Model#updateFilteredC
 and will be displayed to the user via the GUI to feedback to the user that
 the selected recipe's ingredients has been successfully added to the cart.
 
+The following activity diagram shows a possible flow of events for a user using this feature:
+
+.Activity diagram for CartAddRecipeIngredientCommand
+image::CartAddRecipeIngredientActivityDiagram.png[]
 
 The following sequence diagram shows how the function of adding recipe's ingredients to cart works:
 
@@ -1164,7 +1172,7 @@ tagged with "Simple" or "Celebrity".
 
 === Adding an ingredient to a recipe
 
-Please note that the results of these test cases are based on the sample cookbook.
+Please note that the results of these test cases are based on the sample cookbook. The tests can be performed in any order.
 
 .. Prerequisites: List all recipes in the cookbook with the `cookbook list` command, and view all the ingredients in recipe 1 with the `cookbook view recipe INDEX` command, *using the sample cookbook*.
 .. Test case: `recipe 1 add ingredient i/Olive Oil q/1 tbsp` +
@@ -1173,6 +1181,22 @@ Please note that the results of these test cases are based on the sample cookboo
    Expected: the specified ingredient will not be added, and an error message indicating that the existing ingredient in the recipe has a different unit will be displayed.
 .. Test case: `recipe 1 add ingredient i/Ingredient q/1` (a new ingredient) +
    Expected: the specified ingredient is added to the recipe.
+
+=== Removing an ingredient from a recipe
+
+Please note that the results of these test cases are based on the sample cookbook. The tests can be performed in any order.
+
+.. Prerequisites: List all recipes in the cookbook with the `cookbook list` command, and view all the ingredients in recipe 1 with the `cookbook view recipe INDEX` command, *using the sample cookbook*.
+.. Test case: `recipe 1 remove ingredient i/Olive Oil q/1/2 tbsp` +
+   Expected: 1/2 tbsp of olive oil is removed from the recipe, and the ingredient quantity of olive oil is changed from 1 to 1/2 tbsp.
+.. Test case: `recipe 1 remove ingredient i/Olive Oil q/1 tsp` (an ingredient with incompatible units) +
+   Expected: the specified ingredient will not be removed, and an error message is shown indicating that the existing ingredient in the recipe has a different unit will be displayed.
+.. Test case: `recipe 1 remove ingredient i/Ingredient q/1` (an ingredient that is not in the recipe) +
+   Expected: the ingredient is not removed, and an error message is shown indicating that the ingredient is not in the recipe
+.. Test case: `recipe 1 remove ingredient i/Olive Oil q/10 tbsp` (ingredient quantity too high) +
+   Expected: the ingredient is not removed, and an error message is shown indicating that the specified quantity is greater than that in the recipe
+.. Test case: `recipe 1 remove ingredient i/Cheese` (no quantity specified) +
+   Expected: cheese is removed from the recipe entirely, and the recipe no longer contains any cheese
 
 === Exporting the cart to a PDF file
 Please note that for the export command, the result is based on the sample cart.

@@ -14,14 +14,14 @@ ifdef::env-github[]
 endif::[]
 :repoURL: https://github.com/AY1920S2-CS2103T-F11-4/main
 
-By: `Team F11-4`      Since: `Jun 2016`      Licence: `MIT`
+By: `Team F11-4`      Since: `Jan 2020`      Licence: `MIT`
 
 == Introduction
 
 Cooking Papa is an all-in-one, easy-to-use application that acts as a personalised cookbook, with *your* favourite
 recipes!
 
-Cooking Papa aims to help university students who live alone. We aim to make learning how to cook more convenient,
+Cooking Papa aims to help university students who live alone. It aim to make learning how to cook more convenient,
 contributing to the variety of meals of these university students. With Cooking Papa, users can easily edit recipes, keep track of ingredients
 they currently have at home and have a shopping list that assists them in their grocery shopping process.
 
@@ -30,14 +30,14 @@ CookingPapa consists of 3 main features:
 * *Cookbook*: Stores all your recipes, including the ingredients and steps for each recipe. +
 Cookbook commands can be seen here: <<Cookbook>> +
 Cookbook is supplemented with recipe commands, which can be seen here: <<Recipe>>
-* *Inventory*: Stores all the stock of ingredients you currently have. +
+* *Inventory*: Keeps stock of all the ingredients you currently have. +
 Inventory commands can be seen here: <<Inventory>>
-* *Cart*: Acts as a shopping list for ingredients you are missing for a recipe. +
+* *Cart*: Acts as a shopping list for ingredients you may wish to purchase. +
 Cart commands can be seen here: <<Cart>>
 
 Do away with thick, confusing, and expensive cookbooks, and start cooking with Cooking Papa today!
 
-== Quick Start and use of application
+== Quick Start and Use of Application
 
 .  Ensure you have Java `11` or above installed in your Computer.
 .  Download the latest `cookingpapa.jar` link:{repoURL}/releases[here].
@@ -45,19 +45,19 @@ Do away with thick, confusing, and expensive cookbooks, and start cooking with C
 .  Double-click the file to start the app. The GUI should appear in a few seconds.
 +
 .CookingPapa User Interface
-image::Ui.png[width="790"]
+image::Ui.png[width="600"]
 
-. CookingPapa uses the *command window* for all of its commands. You can see a comprehensive view of all
+. CookingPapa uses the *command box* for all of its commands. You can see a comprehensive view of all
 the commands given in <<Features>>.
 +
-.Cooking Papa User Interface; marked: command window
-image::Example1.png[width="790"]
+.Cooking Papa User Interface; marked: command box
+image::Example1.png[width="600"]
 
-. Whenever a command is entered, feedback will be given in the *display window*, depending on the type of
+. Whenever a command is entered, feedback will be given in the *result display*, and the message displayed varies with the type of
 command given by the user.
 +
-.Cooking Papa User Interface; marked: display window
-image::Example2.png[width="790"]
+.Cooking Papa User Interface; marked: result display
+image::Example2.png[width="600"]
 
 . Here are the components of Cooking Papa's user interface:
 
@@ -143,7 +143,7 @@ the details of the recipe.
 
 A recipe's details can also be viewed by pressing the "eye" icon, without the need to type in the command above:
 
-image::CookbookViewExample1.png[width="790"]
+image::CookbookViewExample1.png[width="500"]
 
 ==== Add a new recipe to the cookbook
 This command allows you to add (and store) a new recipe with the provided recipe details to the cookbook.
@@ -272,9 +272,7 @@ You can increase the quantity of an ingredient that is already in the recipe, as
 the same unit. Otherwise, Cooking Papa will not add the ingredient.
 
 Ingredient quantities are case-sensitive, but ingredient names are not, when you adding to an existing ingredient in a
-recipe.
-
-Note: If you indicate multiple ingredient names or quantities, Cooking Papa will only add an ingredient with the last
+recipe. If you indicate multiple ingredient names or quantities, Cooking Papa will only add an ingredient with the last
 name and quantity indicated in your command.
 
 - Format: `recipe INDEX add ingredient i/INGREDIENT q/QUANTITY`
@@ -296,10 +294,12 @@ Sample command feedback: +
 ==== Remove an ingredient from a recipe
 This command allows you to remove ingredients from an existing recipe in the cookbook.
 
-You can reduce the quantity of an ingredient that is already in the recipe, as long as you provide a quantity with
-the same unit, and a value not greater than that in the recipe.  Otherwise, Cooking Papa will not remove the ingredient.
+If you wish to remove an ingredient from the recipe entirely, do not indicate any quantity.
+Cooking Papa will then remove all of the specified ingredient from the recipe.
 
-If you do not indicate any quantity, all of the specified ingredient will be removed from the recipe.
+If you want to reduce the quantity of an ingredient that is already in the recipe, provide a quantity with the same unit
+as in the recipe. The value must be less than that of the corresponding ingredient in the recipe. Otherwise, Cooking Papa
+will not remove the ingredient.
 
 - Format: `recipe INDEX remove ingredient i/INGREDIENT [q/QUANTITY]`
 - Examples:
@@ -386,8 +386,6 @@ This command allows you to remove a tag from an existing recipe in the cookbook.
 Only one tag is accepted at a time. If you provide multiple steps, Cooking Papa
 will only remove the last tag in your command.
 
-Note: you must have the tag you wish to remove in the selected recipe, otherwise Cooking Papa will not be able to remove the tag from the recipe.
-
 - Format: `recipe INDEX remove tag t/TAG`
 - Example:
 |===
@@ -415,18 +413,18 @@ Here are the steps you can follow to modify the recipe:
 Step 1: To add an ingredient to the instant ramen recipe, type `recipe 3 add ingredient i/Instant ramen q/1 packet` into the command box and press kbd:[Enter] on the keyboard.
 Cooking Papa indicates that cucumber has been added to the recipe.
 
-image::RecipeCommand1.png[width=400]
+image::RecipeCommand1.png[width=350]
 
-image::RecipeCommand2.png[width=400]
+image::RecipeCommand2.png[width=350]
 
 Step 2: Repeat step 1 for all the ingredients you need for the instant ramen.
 
 Step 3: To add the first step the instant ramen recipe, type `recipe 3 add step x/next s/Add the oil, garlic, and ginger to a small sauce pot and saute over medium for about one minute.` into the command box and press kbd:[Enter] on the keyboard.
 Cooking Papa indicates that the new step has been added to the recipe.
 
-image::RecipeCommand3.png[width=400]
+image::RecipeCommand3.png[width=350]
 
-image::RecipeCommand4.png[width=400]
+image::RecipeCommand4.png[width=350]
 
 Step 4: Repeat step 3 for all the steps, following chronological order.
 
@@ -434,22 +432,22 @@ Step 5: After adding the ingredients and steps, you can also add tags to the rec
 Type `recipe 3 add tag t/Easy t/Healthy` to add the tags "Easy" and "Healthy" to the recipe. Upon pressing kbd:[Enter],
 Cooking Papa indicates that the tags have been added.
 
-image::RecipeCommand5.png[width=400]
+image::RecipeCommand5.png[width=350]
 
-image::RecipeCommand6.png[width=400]
+image::RecipeCommand6.png[width=350]
 
 Step 6: The recipe is finally ready for use. Type `cookbook view recipe 3` into the command box to view the recipe and and press kbd:[Enter].
 Cooking Papa shows the full recipe for instant ramen, and you can now use it to prepare your meal.
 
-image::RecipeCommand7.png[width=400]
+image::RecipeCommand7.png[width=350]
 
 Step 7: After trying the recipe, if you find that there was too much of ginger for your liking,
 type `recipe 3 remove ingredient i/Grated ginger q/1/2 tsp` into the command box and press kbd:[Enter] to remove half a teaspoon of grated ginger from the recipe.
 Cooking Papa indicates that half a teaspoon of grated ginger has been removed from the recipe.
 
-image::RecipeCommand8.png[width=400]
+image::RecipeCommand8.png[width=350]
 
-image::RecipeCommand9.png[width=400]
+image::RecipeCommand9.png[width=350]
 //end::gohkh[]
 
 //tag::hansheng[]
@@ -620,7 +618,7 @@ _An example of the PDF file exported from the sample cart in Cooking Papa._
 |===
 
 //tag::help[]
-=== Help command https://github.com/teo-jun-xiong[(by Teo Jun Xiong)]
+=== Help Command https://github.com/teo-jun-xiong[(by Teo Jun Xiong)]
 This command shows a popup window with a URL to Cooking Papa's user guide (what you are reading now). This is for access
 should you need some help executing a certain action in Cooking Papa.
 
@@ -632,14 +630,14 @@ dropdown menu. You can then click the `Copy URL` button which can then be pasted
 Papa's user guide.
 
 .Cooking Papa 'Help' button to access the Help window
-image::CookbookHelpExample.png[width="250"]
+image::CookbookHelpExample.png[width="80"]
 
 .Cooking Papa Help window and 'Copy URL' button
-image::CookbookHelpExample2.png[width="700"]
+image::CookbookHelpExample2.png[width="400"]
 //end::help[]
 
 //tag::exit[]
-=== Exit command https://github.com/teo-jun-xiong[(by Teo Jun Xiong)]
+=== Exit Command https://github.com/teo-jun-xiong[(by Teo Jun Xiong)]
 There are 3 ways a user can exit Cooking Papa:
 
 - Type `exit`.
@@ -647,14 +645,14 @@ There are 3 ways a user can exit Cooking Papa:
 - Click on the `File` button on the top left corner of Cooking Papa, and then click on the `Exit` button in the dropdown menu.
 
 .Cooking Papa 'X' button to exit the application.
-image::ExitExample.png[width="790"]
+image::ExitExample.png[width="600"]
 //end::exit[]
 
 == Version 2.0 Features
 These features are not implemented yet, but we plan to do so moving forward with the application.
 
 // tag::gohkh[]
-=== Edit recipe details [v2.0] https://github.com/gohkh?tab=repositories[(by Goh Ka Hui)]
+=== Edit Recipe Commands [v2.0] https://github.com/gohkh?tab=repositories[(by Goh Ka Hui)]
 The following commands allow you to edit the details of the recipes that are currently in the cookbook.
 
 ==== Edit an ingredient in a recipe
@@ -687,7 +685,7 @@ This command allows you to edit a step in an existing recipe in the cookbook.
 // end::gohkh[]
 
 //tag::calendar[]
-=== Calendar Commands [v2.0] https://github.com/teo-jun-xiong[(by Teo Jun Xiong)]
+=== Calendar commands [v2.0] https://github.com/teo-jun-xiong[(by Teo Jun Xiong)]
 Calendar commands are commands that allow you to set date-related commands, such as reminders and
 recipe of the day
 
@@ -736,7 +734,7 @@ This command allows CookingPapa to recommend a recipe to cook based on the recip
 //end::hansheng[]
 
 //tag::faq[]
-== FAQ https://github.com/teo-jun-xiong[(by Teo Jun Xiong)]
+== Frequently Asked Questions https://github.com/teo-jun-xiong[(by Teo Jun Xiong)]
 
 *Q*: How do I transfer my data to another Computer? +
 *A*: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous CookingPapa folder.
@@ -771,26 +769,26 @@ this application with the community!
 |Adds a new recipe with the given NAME and DESCRIPTION.
 INGREDIENT and its QUANTITY, STEP, and TAG are optional parameters and will be added according to input from user.
 |``remove recipe INDEX``
-|Remove recipe at given INDEX.
+|Removes recipe at given INDEX.
 |``search recipe k/KEYWORD``
-|Search for recipes by a keyword.
+|Searches for recipes by a keyword.
 |``search recipe t/TAG``
-|Search for recipes by tags.
+|Searches for recipes by tags.
 |``search inventory``
-|Search for recipes whose ingredients are available in the inventory.
+|Searches for recipes whose ingredients are available in the inventory.
 |``list``
 |Views the whole collection of recipes in the cookbook.
 
 
 .6+|``recipe``
 |``INDEX add ingredient i/INGREDIENT q/QUANTITY``
-|Add ingredients to a recipe at given INDEX.
+|Adds ingredients to a recipe at given INDEX.
 |``INDEX remove ingredient i/INGREDIENT q/QUANTITY``
 |Removes the ingredient and the specified quantity from recipe at given INDEX.
 |``INDEX add step x/STEP_INDEX s/STEP_DESCRIPTION``
 |Adds a step at STEP_INDEX with STEP_DESCRIPTION to the recipe at given INDEX.
 |``INDEX remove step x/STEP_INDEX``
-|Remove a step at STEP_INDEX from the recipe at given INDEX.
+|Removes a step at STEP_INDEX from the recipe at given INDEX.
 |``INDEX add tag t/TAG``
 |Adds a tag 'TAG' to the recipe at given INDEX.
 |``INDEX remove tag t/TAG``

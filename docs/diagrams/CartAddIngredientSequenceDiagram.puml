@@ -26,7 +26,7 @@ create CartCommandParser
 CookingPapaParser -> CartCommandParser
 activate CartCommandParser
 
-CartCommandParser -> CookingPapaParser
+CartCommandParser --> CookingPapaParser
 deactivate CartCommandParser
 
 CookingPapaParser -> CartCommandParser : parse("ingredient")
@@ -36,17 +36,17 @@ create CartAddCommandParser
 CartCommandParser -> CartAddCommandParser
 activate CartAddCommandParser
 
-CartAddCommandParser -> CartCommandParser
+CartAddCommandParser --> CartCommandParser
 deactivate CartAddCommandParser
 
 CartCommandParser ->CartAddCommandParser : parse("ingredient")
 activate CartAddCommandParser
 
 create CartAddIngredientCommandParser
-CartAddCommandParser -> CartAddIngredientCommandParser :
+CartAddCommandParser -> CartAddIngredientCommandParser
 activate CartAddIngredientCommandParser
 
-CartAddIngredientCommandParser -> CartAddCommandParser
+CartAddIngredientCommandParser --> CartAddCommandParser
 deactivate CartAddIngredientCommandParser
 
 CartAddCommandParser -> CartAddIngredientCommandParser : parse("ingredient")
@@ -56,19 +56,19 @@ create CartAddIngredientCommand
 CartAddIngredientCommandParser -> CartAddIngredientCommand
 activate CartAddIngredientCommand
 
-CartAddIngredientCommand -> CartAddIngredientCommandParser : command
+CartAddIngredientCommand --> CartAddIngredientCommandParser : command
 deactivate CartAddIngredientCommand
 
-CartAddIngredientCommandParser -> CartAddCommandParser : command
+CartAddIngredientCommandParser --> CartAddCommandParser : command
 destroy CartAddIngredientCommandParser
 
-CartAddCommandParser -> CartCommandParser : command
+CartAddCommandParser --> CartCommandParser : command
 destroy CartAddCommandParser
 
-CartCommandParser -> CookingPapaParser : command
+CartCommandParser --> CookingPapaParser : command
 destroy CartCommandParser
 
-CookingPapaParser -> LogicManager : command
+CookingPapaParser --> LogicManager : command
 deactivate CookingPapaParser
 
 LogicManager -> CartAddIngredientCommand : execute()

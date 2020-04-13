@@ -50,7 +50,9 @@ https://github.com/AY1920S2-CS2103T-F11-4/main/pull/230[#230])
 (Pull request https://github.com/AY1920S2-CS2103T-F11-4/main/pull/234[#234])
 
 ** Documentation:
-*** Updated UML class diagrams of the `Logic`, `Model` and `Storage` components from the Address Book Level 3 diagrams
+*** Wrote the Recipe Commands section and the Edit Recipe Commands section of the user guide
+*** Updated UML class diagrams of the `Logic`, `Model` and `Storage` components from the Address Book Level 3 diagrams in the developer guide
+*** Added manual testing instructions for adding and removing ingredients in a recipe
 
 ** Community:
 *** PRs reviewed (with non-trivial comments):
