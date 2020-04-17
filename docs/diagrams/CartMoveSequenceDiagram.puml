@@ -22,10 +22,10 @@ LogicManager -> CookingPapaParser : execute("cart move")
 activate CookingPapaParser
 
 create CartCommandParser
-CookingPapaParser --> CartCommandParser
+CookingPapaParser -> CartCommandParser
 activate CartCommandParser
 
-CartCommandParser -> CookingPapaParser
+CartCommandParser --> CookingPapaParser
 deactivate CartCommandParser
 
 CookingPapaParser -> CartCommandParser : parse()
@@ -35,7 +35,7 @@ create CartMoveCommandParser
 CartCommandParser -> CartMoveCommandParser
 activate CartMoveCommandParser
 
-CartMoveCommandParser -> CartCommandParser
+CartMoveCommandParser --> CartCommandParser
 deactivate CartMoveCommandParser
 
 CartCommandParser -> CartMoveCommandParser : parse()
@@ -45,16 +45,16 @@ create CartMoveCommand
 CartMoveCommandParser -> CartMoveCommand
 activate CartMoveCommand
 
-CartMoveCommand -> CartMoveCommandParser : command
+CartMoveCommand --> CartMoveCommandParser : command
 deactivate CartMoveCommand
 
-CartMoveCommandParser -> CartCommandParser : command
+CartMoveCommandParser --> CartCommandParser : command
 destroy CartMoveCommandParser
 
-CartCommandParser -> CookingPapaParser : command
+CartCommandParser --> CookingPapaParser : command
 destroy CartCommandParser
 
-CookingPapaParser -> LogicManager : command
+CookingPapaParser --> LogicManager : command
 deactivate CookingPapaParser
 
 LogicManager -> CartMoveCommand : execute()

@@ -61,9 +61,10 @@ public class SampleDataUtil {
             new Ingredient(new IngredientName("Salt"), new IngredientQuantity("500 g")),
             new Ingredient(new IngredientName("Garlic"), new IngredientQuantity("5 cloves")),
             new Ingredient(new IngredientName("Dried chili flakes"), new IngredientQuantity("50 g")),
-            new Ingredient(new IngredientName("Butter"), new IngredientQuantity("3 sticks")),
             new Ingredient(new IngredientName("Minced beef"), new IngredientQuantity("500 g")),
-            new Ingredient(new IngredientName("Tomatoes"), new IngredientQuantity("10"))
+            new Ingredient(new IngredientName("Tomatoes"), new IngredientQuantity("10")),
+            new Ingredient(new IngredientName("Milk"), new IngredientQuantity("500 ml")),
+            new Ingredient(new IngredientName("Butter"), new IngredientQuantity("500 g"))
         };
     }
 

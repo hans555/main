@@ -199,13 +199,15 @@ INGREDIENT and its QUANTITY, STEP, and TAG are optional parameters and will be a
 |``INDEX remove tag t/TAG``
 |Removes a tag 'TAG' to the recipe at given INDEX.
 
-.3+|``inventory``
+.4+|``inventory``
 |``add ingredient  i/INGREDIENT q/QUANTITY``
 |Adds QUANTITY of INGREDIENTS into your inventory.
 |``remove ingredient i/INGREDIENT q/QUANTITY``
 |Removes QUANTITY of INGREDIENTS from your inventory.
-|`clear`
+|``clear``
 |Removes all ingredients from the inventory.
+|``cook recipe INDEX``
+|Removes the ingredients and its' corresponding quantities of recipe INDEX from the inventory.
 
 .6+|``cart``
 |``add recipe INDEX``
